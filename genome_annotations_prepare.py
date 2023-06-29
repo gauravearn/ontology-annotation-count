@@ -1,4 +1,5 @@
 import arguably
+import pandas as pd
 @arguably.command
 def prepareGeneEnrichment(file = False, count= False, annotation = False):
     """
@@ -24,18 +25,16 @@ def prepareGeneEnrichment(file = False, count= False, annotation = False):
            go_count = []
            with open(file, 'r') as file:
             for line in file.readlines():
-                file_go.append(line.strip())
-            for i in range(len(file_go)):
-                go_final.append(file_go[i].replace(";", "")) 
-                count.append([{i:gene_summarize.count(i)} for i in set(go_summarize)])
-                return gene_ontologies, count, unique
+                go_content.append(line.strip())
+            for i in range(len(go_content)):
+                go_summarize.append(go_content[i].replace(";", "")) 
+                go_count.append([{i:gene_summarize.count(i)} for i in set(go_summarize)])
+                return go_content, go_summarize, go_count
     if annotation:
         while True:
             take_annotation = input("Please enter the path for the \
                                annotation file")
             take_annotation_col = input("Please enter the annotation columns")
-            if take_annotation == "":
-				break
             annotations = pd.read_csv("take_annotation", sep = ",")
             annotations_col = annotations["take_annotation_col"].dropna().tolist()
             final_annotations = [row for col in ([i.split(";") for i in go]) for row in col]
