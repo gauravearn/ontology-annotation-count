@@ -1,3 +1,4 @@
+# changed the names of the iterable as the names were those which i used in testing iterables :-)
 import arguably
 import pandas as pd
 @arguably.command
@@ -16,9 +17,9 @@ def prepareGeneEnrichment(file = False, count= False, annotation = False):
         go_summarize = []
         with open(file, 'r') as file:
             for line in file.readlines():
-                file_go.append(line.strip())
+                go_content.append(line.strip())
             for i in range(len(file_go)):
-                go_final.append(file_go[i].replace(";", ""))
+                go_summarize.append(go_content[i].replace(";", ""))
     if file and count:
            go_content = []
            go_summarize = []
