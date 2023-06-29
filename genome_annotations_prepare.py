@@ -36,6 +36,8 @@ def prepareGeneEnrichment(file = False, count= False, annotation = False):
             take_annotation = input("Please enter the path for the \
                                annotation file")
             take_annotation_col = input("Please enter the annotation columns")
+			if take_annotation and take_annotation_col == "":
+				break
             annotations = pd.read_csv("take_annotation", sep = ",")
             annotations_col = annotations["take_annotation_col"].dropna().tolist()
             final_annotations = [row for col in ([i.split(";") for i in annotations_col]) for row in col]
