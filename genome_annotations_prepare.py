@@ -18,7 +18,7 @@ def prepareGeneEnrichment(file = False, count= False, annotation = False):
         with open(file, 'r') as file:
             for line in file.readlines():
                 go_content.append(line.strip())
-            for i in range(len(file_go)):
+            for i in range(len(go_content)):
                 go_summarize.append(go_content[i].replace(";", ""))
     if file and count:
            go_content = []
