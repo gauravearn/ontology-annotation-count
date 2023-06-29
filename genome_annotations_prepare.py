@@ -13,7 +13,7 @@ def prepareGeneEnrichment(file = False, count= False, annotation = False):
     if file:
         go_content = []
         go_summarize = []
-        with open("/Users/gauravsablok/Desktop/CHPC/Test_Datasets_CHPC/test.txt", 'r') as file:
+        with open(file, 'r') as file:
             for line in file.readlines():
                 file_go.append(line.strip())
             for i in range(len(file_go)):
@@ -22,7 +22,7 @@ def prepareGeneEnrichment(file = False, count= False, annotation = False):
            go_content = []
            go_summarize = []
            go_count = []
-           with open("/Users/gauravsablok/Desktop/CHPC/Test_Datasets_CHPC/test.txt", 'r') as file:
+           with open(file, 'r') as file:
             for line in file.readlines():
                 file_go.append(line.strip())
             for i in range(len(file_go)):
