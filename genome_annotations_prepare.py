@@ -29,7 +29,7 @@ def prepareGeneEnrichment(file = False, count= False, annotation = False):
                 go_content.append(line.strip())
             for i in range(len(go_content)):
                 go_summarize.append(go_content[i].replace(";", "")) 
-                go_count.append([{i:gene_summarize.count(i)} for i in set(go_summarize)])
+                go_count.append([{i:go_summarize.count(i)} for i in set(go_summarize)])
                 return go_content, go_summarize, go_count
     if annotation:
         while True:
@@ -38,7 +38,7 @@ def prepareGeneEnrichment(file = False, count= False, annotation = False):
             take_annotation_col = input("Please enter the annotation columns")
             annotations = pd.read_csv("take_annotation", sep = ",")
             annotations_col = annotations["take_annotation_col"].dropna().tolist()
-            final_annotations = [row for col in ([i.split(";") for i in go]) for row in col]
+            final_annotations = [row for col in ([i.split(";") for i in annotations_col]) for row in col]
             final_annotations_count = [{i:final_annotations.count(i)} for i in set(final_annotations)]
             annotations_name = [i for i in set(final_annotations)]
             annotations_count = [final_annotations.count(i) for i in set(final_annotations_count)]
