@@ -1,4 +1,9 @@
 # changed the names of the iterable as the names were those which i used in testing iterables :-)
+#Gaurav Sablok 
+#Senior Postdoctoral Fellow Faculty of Natural and Agricultural Sciences 
+#Room 7-35, Agricultural Sciences Building 
+#University of Pretoria, Private Bag X20 Hatfield 0028, 
+#South Africa 
 import arguably
 import pandas as pd
 @arguably.command
